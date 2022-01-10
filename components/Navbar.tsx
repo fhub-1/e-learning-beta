@@ -21,12 +21,18 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
-  
+import LOGO from "../images/Logo.png";  
+import Image from 'next/image';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
+import ORANGE from '../images/Rectangle 92.png';
+
+
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box>
+      <Box position="fixed" width="100%" height="" justify="center">
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -55,7 +61,7 @@ import {
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}>
-              Logo
+              <Image src={LOGO} alt="logo"/>
             </Text>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -69,25 +75,32 @@ import {
             direction={'row'}
             spacing={6}>
             <Button
+            display={{ base: 'none', md: 'inline-flex' }}
               as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
+              height={10}
+              size={'lg'}
+              fontWeight={600}
+              color={'white'}
+              bg={'orange.400'}
+              _hover={{
+                bg: 'pink.300',
+              }}
               variant={'link'}
-              href={'#'}>
+              href={'/login'}>
               Sign In
             </Button>
-            <Button
+            {/* <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
               bg={'pink.400'}
-              href={'#'}
+              href={'/signup'}
               _hover={{
                 bg: 'pink.300',
               }}>
               Sign Up
-            </Button>
+            </Button> */}
           </Stack>
         </Flex>
   
